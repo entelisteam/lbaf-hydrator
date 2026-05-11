@@ -11,16 +11,16 @@ trait HydratorTrait
         return HydratorRegistry::getHydrator(static::class);
     }
 
-    public static function hydrateObject(object|array $object, bool $skipErrors = false): static
+    public static function hydrateObject(object|array $object, bool $skipErrors = false, ?string $source = null): static
     {
-        return static::getHydrator()->hydrateObject($object, $skipErrors);
+        return static::getHydrator()->hydrateObject($object, $skipErrors, $source);
     }
 
     /**
      * @return static[]
      */
-    public static function hydrateArray(array $array, bool $skipErrors = false): array
+    public static function hydrateArray(array $array, bool $skipErrors = false, ?string $source = null): array
     {
-        return static::getHydrator()->hydrateArray($array, $skipErrors);
+        return static::getHydrator()->hydrateArray($array, $skipErrors, $source);
     }
 }

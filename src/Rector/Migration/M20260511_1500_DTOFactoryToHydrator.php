@@ -24,9 +24,6 @@ use Rector\Renaming\ValueObject\MethodCallRename;
  *  - схлопывание цепочек getFactory()->createObject/createArray() → hydrateObject/hydrateArray();
  *  - переименование одиночного getFactory() → getHydrator() (только на классах гидратора);
  *  - удалённый метод fromObject() → hydrateObject() (только на классах гидратора).
- *
- * Подключается автоматически через Composer extra.lbaf-rector-migrations
- * провайдером EntelisTeam\DTOHydrator\Rector\Migrations.
  */
 final class M20260511_1500_DTOFactoryToHydrator
 {

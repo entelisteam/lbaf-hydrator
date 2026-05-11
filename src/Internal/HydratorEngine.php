@@ -6,6 +6,7 @@ namespace EntelisTeam\DTOHydrator\Internal;
 use DateTime;
 use DateTimeZone;
 use EntelisTeam\DTOHydrator\Attribute\ArrayTypeOf;
+use EntelisTeam\DTOHydrator\Attribute\Map;
 use EntelisTeam\DTOHydrator\Definition\ArgDefinition;
 use EntelisTeam\DTOHydrator\Definition\ClassDefinition;
 use EntelisTeam\DTOHydrator\Definition\DefinitionType;
@@ -35,19 +36,19 @@ class HydratorEngine
      */
     protected static array $definitionCache = [];
 
-    protected static function createClassFromDefinition(ClassDefinition $classDefinition, object $jsonData, bool $skipErrorsInArrayCreation, string $path = ''): object
+    protected static function createClassFromDefinition(ClassDefinition $classDefinition, object $jsonData, bool $skipErrorsInArrayCreation, string $path = '', ?string $source = null): object
     {
         //собираем данные для конструктора
         $constructorArgs = [];
         if (is_array($classDefinition->constructorArgs)) {
-            $constructorArgs = self::fillArgs($classDefinition->constructorArgs, $jsonData, $skipErrorsInArrayCreation, $path);
+            $constructorArgs = self::fillArgs($classDefinition->constructorArgs, $jsonData, $skipErrorsInArrayCreation, $path, $source);
         }
 
         //создаем класс
         $classInstance = $classDefinition->reflection->newInstanceArgs($constructorArgs);
 
         //патчим свойства класса
-        $properties = self::fillArgs($classDefinition->properties, $jsonData, $skipErrorsInArrayCreation, $path);
+        $properties = self::fillArgs($classDefinition->properties, $jsonData, $skipErrorsInArrayCreation, $path, $source);
 
         foreach ($properties as $key => $value) {
             if ($classDefinition->properties[$key]->reflection->isReadOnly()) {
@@ -63,27 +64,45 @@ class HydratorEngine
     /**
      * @param ArgDefinition[] $params
      */
-    protected static function fillArgs(array $params, object $jsonData, bool $skipErrorsInArrayCreation, string $parentPath = ''): array
+    protected static function fillArgs(array $params, object $jsonData, bool $skipErrorsInArrayCreation, string $parentPath = '', ?string $source = null): array
     {
         $result = [];
 
         foreach ($params as $param) {
-            if (!isset($jsonData->{$param->title})) {
+            $dataKey = self::resolveDataKey($param, $source);
+            $errorPath = $parentPath . '->' . $param->title . ($dataKey !== $param->title ? '{' . $dataKey . '}' : '');
+
+            if (!isset($jsonData->{$dataKey})) {
                 if ($param->mustBeOverwritten) {
-                    throw new RequiredArgumentException($param->reflection, $parentPath . '->' . $param->title);
+                    throw new RequiredArgumentException($param->reflection, $errorPath);
                 }
                 $result[$param->title] = $param->defaultValue;
             } else {
-                $result[$param->title] = self::extractArgFromData($param, $jsonData->{$param->title}, $skipErrorsInArrayCreation, $parentPath);
+                $result[$param->title] = self::extractArgFromData($param, $jsonData->{$dataKey}, $skipErrorsInArrayCreation, $errorPath, $source);
             }
         }
         return $result;
     }
 
-    protected static function extractArgFromData(ArgDefinition $param, mixed $value, bool $skipErrorsInArrayCreation, string $parentPath = '')
+    /**
+     * Резолв ключа во входных данных по правилам Map:
+     *  - source совпал с одним из Map(...,'X')          → использовать его поле
+     *  - есть Map(...,null) и явный source не совпал    → использовать fallback-поле
+     *  - иначе                                           → имя свойства/параметра
+     */
+    protected static function resolveDataKey(ArgDefinition $param, ?string $source): string
     {
-        $currentPath = $parentPath . '->' . $param->title;
+        if ($source !== null && isset($param->maps[$source])) {
+            return $param->maps[$source];
+        }
+        if (isset($param->maps[''])) {
+            return $param->maps[''];
+        }
+        return $param->title;
+    }
 
+    protected static function extractArgFromData(ArgDefinition $param, mixed $value, bool $skipErrorsInArrayCreation, string $currentPath = '', ?string $source = null)
+    {
         switch ($param->definitionType) {
             case DefinitionType::SIMPLE:
                 return self::_formatSimple($param->argType, $value);
@@ -106,7 +125,8 @@ class HydratorEngine
                                 $targetClass,
                                 is_object($value) ? $value : (object)$value,
                                 $skipErrorsInArrayCreation,
-                                $currentPath . '(' . ClassNameHelper::getShortClassName($targetClass) . ')'
+                                $currentPath . '(' . ClassNameHelper::getShortClassName($targetClass) . ')',
+                                $source
                             );
                         } catch (Throwable $e) {
                             if ($targetClass == $lastClass) {
@@ -120,7 +140,8 @@ class HydratorEngine
                         $param->argType,
                         is_object($value) ? $value : (object)$value,
                         $skipErrorsInArrayCreation,
-                        $currentPath . '(' . ClassNameHelper::getShortClassName($param->argType) . ')'
+                        $currentPath . '(' . ClassNameHelper::getShortClassName($param->argType) . ')',
+                        $source
                     );
                 }
                 // no break — unreachable, switch returns above
@@ -129,7 +150,7 @@ class HydratorEngine
                 if (!is_array($value)) {
                     throw new ArgumentTypeException($param->title . " must be an array", $currentPath);
                 }
-                return self::createArrayFromData($param->argType, $value, $param->reflection, $skipErrorsInArrayCreation, $currentPath);
+                return self::createArrayFromData($param->argType, $value, $param->reflection, $skipErrorsInArrayCreation, $currentPath, $source);
         }
     }
 
@@ -146,7 +167,7 @@ class HydratorEngine
      * Корректно обрабатывает вложенные классы, enum, массивы.
      * @throws ReflectionException
      */
-    public static function createClassFromData(string $className, object $jsonData, bool $skipErrorsInArrayCreation, string $path = ''): object
+    public static function createClassFromData(string $className, object $jsonData, bool $skipErrorsInArrayCreation, string $path = '', ?string $source = null): object
     {
         //особые кейсы встроенных классов
         //@todo подумать как сделать красивее
@@ -165,7 +186,8 @@ class HydratorEngine
             self::getClassDefinition($className),
             $jsonData,
             $skipErrorsInArrayCreation,
-            $path
+            $path,
+            $source
         );
     }
 
@@ -233,6 +255,12 @@ class HydratorEngine
         $tmp = new ArgDefinition();
         $tmp->title = $reflection->getName();
         $tmp->reflection = $reflection;
+
+        foreach ($reflection->getAttributes(Map::class, ReflectionAttribute::IS_INSTANCEOF) as $mapAttributeReflection) {
+            /** @var Map $mapAttribute */
+            $mapAttribute = $mapAttributeReflection->newInstance();
+            $tmp->maps[$mapAttribute->source ?? ''] = $mapAttribute->field;
+        }
 
         if ($reflection instanceof ReflectionProperty ? $reflection->hasDefaultValue() : $reflection->isDefaultValueAvailable()) {
             $tmp->defaultValue = $reflection->getDefaultValue();
@@ -316,7 +344,7 @@ class HydratorEngine
      * @todo переиспользовать эту функцию чтобы не было дублирования кода
      * @todo как грязная идея - сделать фейковый definition из объекта с массивом с одним типом, заюзать основную функцию и потом вывести свойство
      */
-    public static function createArrayFromData(string|array $targetClassArr, array $jsonData, ReflectionParameter|ReflectionProperty $reflection, bool $skipErrorsInArrayCreation, string $parentPath = ''): array
+    public static function createArrayFromData(string|array $targetClassArr, array $jsonData, ReflectionParameter|ReflectionProperty $reflection, bool $skipErrorsInArrayCreation, string $parentPath = '', ?string $source = null): array
     {
         $result = [];
 
@@ -330,7 +358,7 @@ class HydratorEngine
             foreach ($jsonData as $index => $item) {
                 foreach ($definitionTypes as $targetClass => $definitionType) {
                     try {
-                        $tmp = self::_createArrItem($definitionType, $targetClass, $item, $reflection, $skipErrorsInArrayCreation, $parentPath . '[]');
+                        $tmp = self::_createArrItem($definitionType, $targetClass, $item, $reflection, $skipErrorsInArrayCreation, $parentPath . '[]', $source);
                     } catch (Throwable $e) {
                         if ($targetClass == $lastClass) {
                             if ($skipErrorsInArrayCreation) {
@@ -349,7 +377,7 @@ class HydratorEngine
             $definitionType = self::getDefinitionTypeFromTargetClassname($targetClassArr);
             foreach ($jsonData as $index => $item) {
                 try {
-                    $tmp = self::_createArrItem($definitionType, $targetClassArr, $item, $reflection, $skipErrorsInArrayCreation, $parentPath . '[]');
+                    $tmp = self::_createArrItem($definitionType, $targetClassArr, $item, $reflection, $skipErrorsInArrayCreation, $parentPath . '[]', $source);
                     $result[] = $tmp;
                 } catch (RequiredArgumentException $e) {
                     if ($skipErrorsInArrayCreation) {
@@ -384,7 +412,8 @@ class HydratorEngine
         mixed $item,
         ReflectionParameter|ReflectionProperty $reflection,
         bool $skipErrorsInArrayCreation,
-        string $parentPath = ''
+        string $parentPath = '',
+        ?string $source = null
     ): mixed {
         switch ($definitionType) {
             case DefinitionType::OBJECT:
@@ -392,7 +421,8 @@ class HydratorEngine
                     $targetClass,
                     is_object($item) ? $item : (object)$item,
                     $skipErrorsInArrayCreation,
-                    $parentPath . '(' . ClassNameHelper::getShortClassName($targetClass) . ')'
+                    $parentPath . '(' . ClassNameHelper::getShortClassName($targetClass) . ')',
+                    $source
                 );
             case DefinitionType::SIMPLE:
                 return self::_formatSimple($targetClass, $item);

@@ -24,6 +24,13 @@ class ArgDefinition
     public bool $mustBeOverwritten;
     public ReflectionProperty|ReflectionParameter $reflection;
 
+    /**
+     * Карта источник → имя поля во входных данных (Map-атрибуты).
+     * Ключ '' соответствует Map с source=null (применяется когда явный source не совпал).
+     * @var array<string, string>
+     */
+    public array $maps = [];
+
     public function setTitle(string $title): self
     {
         $this->title = $title;

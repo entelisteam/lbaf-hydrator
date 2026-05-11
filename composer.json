@@ -29,9 +29,6 @@
       "EntelisTeam\\DTOHydrator\\Tests\\": "tests/"
     }
   },
-  "extra": {
-    "lbaf-rector-migrations": "EntelisTeam\\DTOHydrator\\Rector\\Migrations"
-  },
   "scripts": {
     "test": "vendor/bin/phpunit"
   },

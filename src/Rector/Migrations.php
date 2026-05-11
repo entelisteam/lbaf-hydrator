@@ -6,9 +6,6 @@ namespace EntelisTeam\DTOHydrator\Rector;
 
 /**
  * Реестр Rector-миграций пакета entelisteam/php-dto-hydrator.
- *
- * Регистрируется через composer.json `extra.lbaf-rector-migrations`;
- * автоматически подхватывается Lbaf\Rector\Manager.
  */
 final class Migrations
 {

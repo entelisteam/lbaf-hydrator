@@ -19,7 +19,7 @@ class Hydrator
      * Создает экземпляр объекта на основе данных в структуре $jsonData.
      * @throws RequiredArgumentException
      */
-    public function hydrateObject(object|array $jsonData, bool $skipErrorsInArrayCreation = false, string $path = ''): ?object
+    public function hydrateObject(object|array $jsonData, bool $skipErrorsInArrayCreation = false, ?string $source = null, string $path = ''): ?object
     {
         if (is_array($jsonData)) {
             $jsonData = (object)$jsonData;
@@ -28,19 +28,20 @@ class Hydrator
             $this->className,
             $jsonData,
             $skipErrorsInArrayCreation,
-            $path
+            $path,
+            $source
         );
     }
 
     /**
      * Создает массив объектов на основе данных в структуре $jsonData.
      */
-    public function hydrateArray(array $jsonDataArray, bool $skipErrorsInArrayCreation = false): array
+    public function hydrateArray(array $jsonDataArray, bool $skipErrorsInArrayCreation = false, ?string $source = null): array
     {
         $result = [];
         foreach ($jsonDataArray as $index => $item) {
             try {
-                $result[] = $this->hydrateObject($item, $skipErrorsInArrayCreation, '[](' . ClassNameHelper::getShortClassName($this->className) . ')');
+                $result[] = $this->hydrateObject($item, $skipErrorsInArrayCreation, $source, '[](' . ClassNameHelper::getShortClassName($this->className) . ')');
             } catch (RequiredArgumentException $e) {
                 if ($skipErrorsInArrayCreation) {
                     continue;
