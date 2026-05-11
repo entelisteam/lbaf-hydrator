@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Rector;
+namespace EntelisTeam\DTOHydrator\Rector\Migration\Rule;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
@@ -13,21 +13,21 @@ use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
- * Заменяет class::getFactory()->createObject() на class::hydrateObject().
+ * Заменяет class::getFactory()->createArray() на class::hydrateArray().
  *
  * Матчит и старое getFactory(), и новое getHydrator() — порядок применения
  * Rector-правил при этом не важен.
  */
-final class ReplaceGetFactoryCreateObjectWithHydrateObjectRule extends AbstractRector
+final class ReplaceGetFactoryCreateArrayWithHydrateArrayRule extends AbstractRector
 {
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
-            'Replace class::getFactory()->createObject() with class::hydrateObject()',
+            'Replace class::getFactory()->createArray() with class::hydrateArray()',
             [
                 new CodeSample(
-                    'SomeClass::getFactory()->createObject($data)',
-                    'SomeClass::hydrateObject($data)'
+                    'SomeClass::getFactory()->createArray($data)',
+                    'SomeClass::hydrateArray($data)'
                 ),
             ]
         );
@@ -43,7 +43,7 @@ final class ReplaceGetFactoryCreateObjectWithHydrateObjectRule extends AbstractR
      */
     public function refactor(Node $node): ?Node
     {
-        if (!$this->isName($node->name, 'createObject')) {
+        if (!$this->isName($node->name, 'createArray')) {
             return null;
         }
 
@@ -59,7 +59,7 @@ final class ReplaceGetFactoryCreateObjectWithHydrateObjectRule extends AbstractR
 
         return new StaticCall(
             $getFactoryCall->class,
-            new Identifier('hydrateObject'),
+            new Identifier('hydrateArray'),
             $node->args
         );
     }

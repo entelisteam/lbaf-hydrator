@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace EntelisTeam\DTOHydrator\Tests\Rector\ReplaceGetFactoryCreateArrayWithHydrateArrayRule;
 
 use Iterator;
-use EntelisTeam\DTOHydrator\Rector\ReplaceGetFactoryCreateArrayWithHydrateArrayRule;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
 

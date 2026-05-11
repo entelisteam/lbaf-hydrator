@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Rector;
+namespace EntelisTeam\DTOHydrator\Rector\Migration\Rule;
 
 use EntelisTeam\DTOHydrator\Rector\Internal\HydratorTraitDetector;
 use PhpParser\Node;

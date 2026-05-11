@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace EntelisTeam\DTOHydrator\Rector\Migration;
 
 use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\Rector\ReplaceFromObjectWithHydrateObjectRule;
-use EntelisTeam\DTOHydrator\Rector\ReplaceGetFactoryCreateArrayWithHydrateArrayRule;
-use EntelisTeam\DTOHydrator\Rector\ReplaceGetFactoryCreateObjectWithHydrateObjectRule;
-use EntelisTeam\DTOHydrator\Rector\ReplaceGetFactoryWithGetHydratorRule;
+use EntelisTeam\DTOHydrator\Rector\Migration\Rule\ReplaceFromObjectWithHydrateObjectRule;
+use EntelisTeam\DTOHydrator\Rector\Migration\Rule\ReplaceGetFactoryCreateArrayWithHydrateArrayRule;
+use EntelisTeam\DTOHydrator\Rector\Migration\Rule\ReplaceGetFactoryCreateObjectWithHydrateObjectRule;
+use EntelisTeam\DTOHydrator\Rector\Migration\Rule\ReplaceGetFactoryWithGetHydratorRule;
 use Rector\Configuration\RectorConfigBuilder;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\Rector\Name\RenameClassRector;
