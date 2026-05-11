@@ -18,13 +18,13 @@ class UsesReflectionClassCreator
 
 namespace Tests\Rector\M20260511_1012_HydratorAndContainerSplit\Fixture;
 
-use EntelisTeam\Hydrator\Hydrator;
+use EntelisTeam\DTOHydrator\Internal\HydratorEngine;
 
 class UsesReflectionClassCreator
 {
     public function build(string $class, object $data): object
     {
-        return Hydrator::createClassFromData($class, $data, false);
+        return HydratorEngine::createClassFromData($class, $data, false);
     }
 }
 

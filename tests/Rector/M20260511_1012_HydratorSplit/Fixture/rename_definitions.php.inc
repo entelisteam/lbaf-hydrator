@@ -25,9 +25,10 @@ class UsesDefinitions
 
 namespace Tests\Rector\M20260511_1012_HydratorAndContainerSplit\Fixture;
 
-use EntelisTeam\Hydrator\Definition\ClassDefinition;
-use EntelisTeam\Hydrator\Definition\ArgDefinition;
-use EntelisTeam\Hydrator\Definition\DefinitionType;
+use EntelisTeam\DTOHydrator\Definition\ClassDefinition;
+use EntelisTeam\DTOHydrator\Definition\ArgDefinition;
+use EntelisTeam\DTOHydrator\Definition\DefinitionType;
+
 
 class UsesDefinitions
 {

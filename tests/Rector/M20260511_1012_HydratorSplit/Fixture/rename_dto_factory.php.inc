@@ -27,23 +27,23 @@ class UsesDtoFactoryTrait implements DTOFactoryTraitInterface
 
 namespace Tests\Rector\M20260511_1012_HydratorAndContainerSplit\Fixture;
 
-use EntelisTeam\Hydrator\DTOFactory;
-use EntelisTeam\Hydrator\DTOFactoryCache;
-use EntelisTeam\Hydrator\DTOFactoryTraitInterface;
-use EntelisTeam\Hydrator\DTOFactoryTrait;
+use EntelisTeam\DTOHydrator\Hydrator;
+use EntelisTeam\DTOHydrator\HydratorRegistry;
+use EntelisTeam\DTOHydrator\HydratorTraitInterface;
+use EntelisTeam\DTOHydrator\HydratorTrait;
 
 class UsesDtoFactory
 {
     public function build(): void
     {
-        $factory = new DTOFactory(self::class);
-        $factory = DTOFactoryCache::getFactory(self::class);
+        $factory = new Hydrator(self::class);
+        $factory = HydratorRegistry::getHydrator(self::class);
     }
 }
 
-class UsesDtoFactoryTrait implements DTOFactoryTraitInterface
+class UsesDtoFactoryTrait implements HydratorTraitInterface
 {
-    use DTOFactoryTrait;
+    use HydratorTrait;
 }
 
 ?>

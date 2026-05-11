@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace EntelisTeam\DTOHydrator\Rector\Migration;
 
 use Rector\Configuration\RectorConfigBuilder;
+use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Renaming\Rector\Name\RenameClassRector;
 use Rector\Renaming\Rector\StaticCall\RenameStaticMethodRector;
+use Rector\Renaming\ValueObject\MethodCallRename;
 use Rector\Renaming\ValueObject\RenameStaticMethod;
 
 /**
@@ -28,48 +30,43 @@ use Rector\Renaming\ValueObject\RenameStaticMethod;
 final class M20260511_1013_HydratorSplit
 {
     /**
-     * Карта переименований классов: old FQN → new FQN.
-     */
-    public const CLASS_RENAMES = [
-        // Hydrator core
-        'Lbaf\\Reflection\\ReflectionClassCreator' => 'EntelisTeam\\Hydrator\\Hydrator',
-
-        // Hydrator definitions
-        'Lbaf\\Reflection\\Definition\\ClassDefinition' => 'EntelisTeam\\Hydrator\\Definition\\ClassDefinition',
-        'Lbaf\\Reflection\\Definition\\ArgDefinition' => 'EntelisTeam\\Hydrator\\Definition\\ArgDefinition',
-        'Lbaf\\Reflection\\Definition\\DefinitionType' => 'EntelisTeam\\Hydrator\\Definition\\DefinitionType',
-
-        // Hydrator public facade
-        'Lbaf\\Factory\\DTOFactory' => 'EntelisTeam\\Hydrator\\DTOFactory',
-        'Lbaf\\Factory\\DTOFactoryCache' => 'EntelisTeam\\Hydrator\\DTOFactoryCache',
-        'Lbaf\\Factory\\DTOFactoryTrait' => 'EntelisTeam\\Hydrator\\DTOFactoryTrait',
-        'Lbaf\\Factory\\DTOFactoryTraitInterface' => 'EntelisTeam\\Hydrator\\DTOFactoryTraitInterface',
-
-        // Hydrator attribute
-        'Lbaf\\Factory\\Attribute\\ArrayTypeOf' => 'EntelisTeam\\Hydrator\\Attribute\\ArrayTypeOf',
-
-    ];
-
-    /**
-     * @return RenameStaticMethod[]
-     */
-    public static function getStaticMethodRenames(): array
-    {
-        return [
-             // Hydrator value coercion
-            new RenameStaticMethod('Lbaf\\Reflection\\ReflectionHelper', '_changeInjectValueType', 'EntelisTeam\\Hydrator\\Hydrator', 'hydrateValue'),
-        ];
-    }
-
-    /**
      * Применяет правила миграции к существующему конфигуратору.
      */
     public static function apply(RectorConfigBuilder $config): RectorConfigBuilder
     {
         return $config
-            ->withConfiguredRule(RenameClassRector::class, self::CLASS_RENAMES)
-            ->withConfiguredRule(RenameStaticMethodRector::class, self::getStaticMethodRenames())
+            ->withConfiguredRule(RenameClassRector::class, [
+                'Lbaf\\Reflection\\ReflectionClassCreator' => 'EntelisTeam\\DTOHydrator\\Hydrator',
+            ])
+            ->withConfiguredRule(RenameMethodRector::class, [
+                new MethodCallRename('EntelisTeam\\DTOHydrator\\Hydrator', 'createObject', 'hydrateObject'),
+                new MethodCallRename('EntelisTeam\\DTOHydrator\\Hydrator', 'createArray', 'hydrateArray'),
+            ])
+            ->withConfiguredRule(RenameClassRector::class, [
+                // Hydrator Engine
+                'Lbaf\\Reflection\\ReflectionClassCreator' => 'EntelisTeam\\DTOHydrator\\Internal\\HydratorEngine',
+                // Hydrator definitions
+                'Lbaf\\Reflection\\Definition\\ClassDefinition' => 'EntelisTeam\\DTOHydrator\\Definition\\ClassDefinition',
+                'Lbaf\\Reflection\\Definition\\ArgDefinition' => 'EntelisTeam\\DTOHydrator\\Definition\\ArgDefinition',
+                'Lbaf\\Reflection\\Definition\\DefinitionType' => 'EntelisTeam\\DTOHydrator\\Definition\\DefinitionType',
+                // Hydrator public facade
+                'Lbaf\\Factory\\DTOFactory' => 'EntelisTeam\\DTOHydrator\\Hydrator',
+                'Lbaf\\Factory\\DTOFactoryCache' => 'EntelisTeam\\DTOHydrator\\HydratorRegistry',
+                'Lbaf\\Factory\\DTOFactoryTrait' => 'EntelisTeam\\DTOHydrator\\HydratorTrait',
+                'Lbaf\\Factory\\DTOFactoryTraitInterface' => 'EntelisTeam\\DTOHydrator\\HydratorTraitInterface',
+
+                // Hydrator attribute
+                'Lbaf\\Factory\\Attribute\\ArrayTypeOf' => 'EntelisTeam\\DTOHydrator\\Attribute\\ArrayTypeOf',
+
+            ])
+            ->withConfiguredRule(RenameStaticMethodRector::class, [
+                // Hydrator value coercion
+                new RenameStaticMethod('Lbaf\\Reflection\\ReflectionHelper', '_changeInjectValueType', 'EntelisTeam\\DTOHydrator\\Hydrator', 'hydrateValue'),
+                new RenameStaticMethod('EntelisTeam\\DTOHydrator\\HydratorRegistry', 'getFactory', 'EntelisTeam\\DTOHydrator\\HydratorRegistry', 'getHydrator'),
+            ])
             //импортируем короткие имена через use вместо FQN, удаляем устаревшие use на Lbaf-овские классы
             ->withImportNames(importNames: true, importDocBlockNames: true, importShortClasses: false, removeUnusedImports: true);
     }
+
+
 }

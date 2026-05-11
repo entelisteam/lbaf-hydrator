@@ -18,7 +18,7 @@ class UsesReflectionHelper
 
 namespace Tests\Rector\M20260511_1012_HydratorAndContainerSplit\Fixture;
 
-use EntelisTeam\Hydrator\Hydrator;
+use EntelisTeam\DTOHydrator\Hydrator;
 
 class UsesReflectionHelper
 {
