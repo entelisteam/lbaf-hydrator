@@ -31,15 +31,16 @@ use Rector\Renaming\ValueObject\MethodCallRename;
 final class M20260511_1500_DTOFactoryToHydrator
 {
     public const CLASS_RENAMES = [
+
+        // Бывший движок Hydrator → публичный фасад Hydrator (его статический
+        // hydrateValue делегирует в Internal\HydratorEngine)
+        'EntelisTeam\\Hydrator\\Hydrator' => 'EntelisTeam\\DTOHydrator\\Hydrator',
+
         // Публичный API: DTOFactory* → Hydrator*
         'EntelisTeam\\Hydrator\\DTOFactory' => 'EntelisTeam\\DTOHydrator\\Hydrator',
         'EntelisTeam\\Hydrator\\DTOFactoryCache' => 'EntelisTeam\\DTOHydrator\\HydratorRegistry',
         'EntelisTeam\\Hydrator\\DTOFactoryTrait' => 'EntelisTeam\\DTOHydrator\\HydratorTrait',
         'EntelisTeam\\Hydrator\\DTOFactoryTraitInterface' => 'EntelisTeam\\DTOHydrator\\HydratorTraitInterface',
-
-        // Бывший движок Hydrator → публичный фасад Hydrator (его статический
-        // hydrateValue делегирует в Internal\HydratorEngine)
-        'EntelisTeam\\Hydrator\\Hydrator' => 'EntelisTeam\\DTOHydrator\\Hydrator',
 
         // Подпакеты: только смена корня namespace
         'EntelisTeam\\Hydrator\\Attribute\\ArrayTypeOf' => 'EntelisTeam\\DTOHydrator\\Attribute\\ArrayTypeOf',
