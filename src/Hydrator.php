@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator;
+namespace EntelisTeam\Lbaf\Hydrator;
 
-use EntelisTeam\DTOHydrator\Exception\RequiredArgumentException;
-use EntelisTeam\DTOHydrator\Internal\HydratorEngine;
+use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
+use EntelisTeam\Lbaf\Hydrator\Internal\HydratorEngine;
 use EntelisTeam\Reflection\ClassNameHelper;
 use ReflectionParameter;
 use ReflectionProperty;

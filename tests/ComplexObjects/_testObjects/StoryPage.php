@@ -1,9 +1,9 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\ComplexObjects\_testObjects;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects;
 
-use EntelisTeam\DTOHydrator\Attribute\ArrayTypeOf;
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 
 class StoryPage
 {

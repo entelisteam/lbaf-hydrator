@@ -1,6 +1,6 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\ComplexObjects\_testObjects;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects;
 
 use Exception;
 

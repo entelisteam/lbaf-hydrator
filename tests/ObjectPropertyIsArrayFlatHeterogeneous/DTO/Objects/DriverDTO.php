@@ -1,8 +1,8 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous\DTO\Objects;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous\DTO\Objects;
 
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 
 class DriverDTO
 {

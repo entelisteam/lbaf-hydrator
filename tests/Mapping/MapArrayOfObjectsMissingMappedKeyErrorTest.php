@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\Mapping;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Mapping;
 
-use EntelisTeam\DTOHydrator\Exception\RequiredArgumentException;
-use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\Tests\Mapping\_dto\DTOMapArraySourced;
+use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\Tests\Mapping\_dto\DTOMapArraySourced;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

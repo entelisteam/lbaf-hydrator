@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\Rector\ReplaceGetFactoryCreateArrayWithHydrateArrayRule;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Rector\ReplaceGetFactoryCreateArrayWithHydrateArrayRule;
 
 use Iterator;
 use PHPUnit\Framework\Attributes\DataProvider;

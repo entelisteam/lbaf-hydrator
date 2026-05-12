@@ -1,9 +1,9 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\_dto;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\_dto;
 
-use EntelisTeam\DTOHydrator\HydratorTrait;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\UntypedEnum;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\UntypedEnum;
 
 class DTOWithUntypedEn
 {

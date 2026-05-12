@@ -1,12 +1,12 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous\DTO;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous\DTO;
 
-use EntelisTeam\DTOHydrator\Attribute\ArrayTypeOf;
-use EntelisTeam\DTOHydrator\HydratorTrait;
-use EntelisTeam\DTOHydrator\Tests\_dto\DTOWithConstructor;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\IntEnum;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\StringEnum;
+use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\DTOWithConstructor;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\IntEnum;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\StringEnum;
 
 class DTOArrayHomogeneousWithConstructor
 {

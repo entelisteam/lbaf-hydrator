@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\Hydrator\_testObjects;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Hydrator\_testObjects;
 
 class SimpleClass
 {

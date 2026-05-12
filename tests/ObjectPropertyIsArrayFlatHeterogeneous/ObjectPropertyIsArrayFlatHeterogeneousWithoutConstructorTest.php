@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous;
 
-use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\HydratorTrait;
-use EntelisTeam\DTOHydrator\HydratorTraitInterface;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\HydratorTraitInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous\DTO\DTOArrayHeterogeneousWithoutConstructor;
-use EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous\DTO\Objects\CarDTO;
-use EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous\DTO\Objects\DriverDTO;
+use EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous\DTO\DTOArrayHeterogeneousWithoutConstructor;
+use EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous\DTO\Objects\CarDTO;
+use EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHeterogeneous\DTO\Objects\DriverDTO;
 
 #[
     CoversClass(Hydrator::class),

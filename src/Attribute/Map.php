@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Attribute;
+namespace EntelisTeam\Lbaf\Hydrator\Attribute;
 
 use Attribute;
 
@@ -28,7 +28,6 @@ use Attribute;
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_PARAMETER | Attribute::IS_REPEATABLE)]
 class Map
 {
-
     public function __construct(public string $field, public ?string $source = null)
     {
 

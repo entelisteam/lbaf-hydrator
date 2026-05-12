@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\Mapping;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Mapping;
 
-use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\StringEnum;
-use EntelisTeam\DTOHydrator\Tests\Mapping\_dto\DTOMapEnum;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\StringEnum;
+use EntelisTeam\Lbaf\Hydrator\Tests\Mapping\_dto\DTOMapEnum;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayWithSkipBroken\DTO;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayWithSkipBroken\DTO;
 
-use EntelisTeam\DTOHydrator\Attribute\ArrayTypeOf;
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 
 class TestObjectWithArrayProperty
 {

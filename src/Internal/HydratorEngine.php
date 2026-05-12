@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Internal;
+namespace EntelisTeam\Lbaf\Hydrator\Internal;
 
 use DateTime;
 use DateTimeZone;
-use EntelisTeam\DTOHydrator\Attribute\ArrayTypeOf;
-use EntelisTeam\DTOHydrator\Attribute\Map;
-use EntelisTeam\DTOHydrator\Definition\ArgDefinition;
-use EntelisTeam\DTOHydrator\Definition\ClassDefinition;
-use EntelisTeam\DTOHydrator\Definition\DefinitionType;
-use EntelisTeam\DTOHydrator\Exception\ArgumentTypeException;
-use EntelisTeam\DTOHydrator\Exception\RequiredArgumentException;
+use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
+use EntelisTeam\Lbaf\Hydrator\Attribute\Map;
+use EntelisTeam\Lbaf\Hydrator\Definition\ArgDefinition;
+use EntelisTeam\Lbaf\Hydrator\Definition\ClassDefinition;
+use EntelisTeam\Lbaf\Hydrator\Definition\DefinitionType;
+use EntelisTeam\Lbaf\Hydrator\Exception\ArgumentTypeException;
+use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
 use EntelisTeam\Reflection\ClassNameHelper;
 use EntelisTeam\Reflection\EnumHelper;
 use EntelisTeam\Reflection\TypeCaster;
@@ -217,7 +217,7 @@ class HydratorEngine
             $result->constructorArgs = [];
             foreach ($constructorReflection->getParameters() as $parameterReflection) {
                 foreach ($parameterReflection->getAttributes(ArrayTypeOf::class, ReflectionAttribute::IS_INSTANCEOF) as $parameterAttributeReflection) {
-                    /** @var ArrayTypeOf $attribute */
+                    /** @var \EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf $attribute */
                     $attribute = $parameterAttributeReflection->newInstance();
                     $constructorArrayParametersType[$parameterReflection->getName()] = $attribute->targetClass;
                 }

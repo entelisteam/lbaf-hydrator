@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Exception;
+namespace EntelisTeam\Lbaf\Hydrator\Exception;
 
 use RuntimeException;
 

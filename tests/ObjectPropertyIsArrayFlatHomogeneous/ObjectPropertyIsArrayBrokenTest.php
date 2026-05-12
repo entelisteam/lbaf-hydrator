@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous;
 
-use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use EntelisTeam\DTOHydrator\Tests\_dto\Broken\DTOUntypedArrayParameter;
-use EntelisTeam\DTOHydrator\Tests\_dto\Broken\DTOUntypedArrayProperty;
-use EntelisTeam\DTOHydrator\Tests\_traits\CheckObjectTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Broken\DTOUntypedArrayParameter;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Broken\DTOUntypedArrayProperty;
+use EntelisTeam\Lbaf\Hydrator\Tests\_traits\CheckObjectTrait;
 
 
 #[

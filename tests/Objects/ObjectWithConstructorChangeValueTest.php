@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\Objects;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Objects;
 
-use EntelisTeam\DTOHydrator\HydratorRegistry;
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\HydratorRegistry;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 use PHPUnit\Framework\TestCase;
-use EntelisTeam\DTOHydrator\Tests\_traits\CheckObjectTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\_traits\CheckObjectTrait;
 
 final class ObjectWithConstructorChangeValueTest extends TestCase
 {

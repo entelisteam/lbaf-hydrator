@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Attribute;
+namespace EntelisTeam\Lbaf\Hydrator\Attribute;
 
 use Attribute;
 

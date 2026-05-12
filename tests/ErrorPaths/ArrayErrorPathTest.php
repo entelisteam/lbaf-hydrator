@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\ErrorPaths;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ErrorPaths;
 
-use EntelisTeam\DTOHydrator\Exception\RequiredArgumentException;
-use EntelisTeam\DTOHydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -20,7 +20,7 @@ class ContainerWithArray
     /**
      * @var ItemInArray[]
      */
-    #[\EntelisTeam\DTOHydrator\Attribute\ArrayTypeOf(ItemInArray::class)]
+    #[\EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf(ItemInArray::class)]
     public array $items;
 }
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous\DTO;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous\DTO;
 
-use EntelisTeam\DTOHydrator\Attribute\ArrayTypeOf;
-use EntelisTeam\DTOHydrator\HydratorTrait;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\UntypedEnum;
+use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\UntypedEnum;
 
 class DTOArrayHomogeneousUntypedEnumsWithoutConstructor
 {

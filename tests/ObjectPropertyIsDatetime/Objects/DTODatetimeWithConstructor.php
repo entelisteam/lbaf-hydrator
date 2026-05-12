@@ -1,10 +1,10 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsDatetime\Objects;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsDatetime\Objects;
 
 use DateTime;
-use EntelisTeam\DTOHydrator\HydratorTrait;
-use EntelisTeam\DTOHydrator\HydratorTraitInterface;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\HydratorTraitInterface;
 
 class DTODatetimeWithConstructor implements HydratorTraitInterface
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Rector\Migration\Rule;
+namespace EntelisTeam\Lbaf\Hydrator\Rector\Migration\Rule;
 
-use EntelisTeam\DTOHydrator\Rector\Internal\HydratorTraitDetector;
+use EntelisTeam\Lbaf\Hydrator\Rector\Internal\HydratorTraitDetector;
 use PhpParser\Node;
 use PhpParser\Node\Expr\StaticCall;
 use PhpParser\Node\Identifier;
@@ -14,13 +14,13 @@ use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
 use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
- * Заменяет class::fromObject($data) на class::hydrateObject($data) для классов,
- * использующих HydratorTrait (раньше DTOFactoryTrait).
+ * Заменяет ::getFactory() на ::getHydrator() для классов экосистемы гидратора:
+ *  - DTO, использующих HydratorTrait (раньше DTOFactoryTrait);
+ *  - HydratorRegistry (раньше DTOFactoryCache).
  *
- * Метод fromObject() удалён из HydratorTrait/HydratorTraitInterface в пользу
- * hydrateObject(). Чужие классы с методом fromObject() не трогаются.
+ * Чужие классы с методом getFactory() не трогаются.
  */
-final class ReplaceFromObjectWithHydrateObjectRule extends AbstractRector
+final class ReplaceGetFactoryWithGetHydratorRule extends AbstractRector
 {
     public function __construct(private readonly ReflectionProvider $reflectionProvider)
     {
@@ -29,11 +29,11 @@ final class ReplaceFromObjectWithHydrateObjectRule extends AbstractRector
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
-            'Replace class::fromObject() with class::hydrateObject() on HydratorTrait users',
+            'Replace class::getFactory() with class::getHydrator() on HydratorTrait users and HydratorRegistry',
             [
                 new CodeSample(
-                    'SomeDTO::fromObject($data)',
-                    'SomeDTO::hydrateObject($data)'
+                    'SomeDTO::getFactory()',
+                    'SomeDTO::getHydrator()'
                 ),
             ]
         );
@@ -49,7 +49,7 @@ final class ReplaceFromObjectWithHydrateObjectRule extends AbstractRector
      */
     public function refactor(Node $node): ?Node
     {
-        if (!$this->isName($node->name, 'fromObject')) {
+        if (!$this->isName($node->name, 'getFactory')) {
             return null;
         }
 
@@ -59,11 +59,13 @@ final class ReplaceFromObjectWithHydrateObjectRule extends AbstractRector
             $this->nodeNameResolver,
             $this->nodeTypeResolver,
         );
-        if (!HydratorTraitDetector::usesHydratorTrait($classReflection)) {
+        if (!HydratorTraitDetector::usesHydratorTrait($classReflection)
+            && !HydratorTraitDetector::isHydratorRegistry($classReflection)
+        ) {
             return null;
         }
 
-        $node->name = new Identifier('hydrateObject');
+        $node->name = new Identifier('getHydrator');
         return $node;
     }
 }

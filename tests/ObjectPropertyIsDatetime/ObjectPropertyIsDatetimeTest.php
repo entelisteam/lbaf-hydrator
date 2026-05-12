@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsDatetime;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsDatetime;
 
 use DateTime;
-use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\HydratorTrait;
-use EntelisTeam\DTOHydrator\HydratorTraitInterface;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\HydratorTraitInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsDatetime\Objects\DTODatetimeWithConstructor;
+use EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsDatetime\Objects\DTODatetimeWithConstructor;
 
 
 #[

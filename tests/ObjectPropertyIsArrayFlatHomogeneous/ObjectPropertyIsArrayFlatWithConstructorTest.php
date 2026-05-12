@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous;
 
-use EntelisTeam\DTOHydrator\Exception\RequiredArgumentException;
-use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use EntelisTeam\DTOHydrator\Tests\_dto\DTOWithConstructor;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\IntEnum;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\StringEnum;
-use EntelisTeam\DTOHydrator\Tests\_traits\CheckObjectTrait;
-use EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous\DTO\DTOArrayHomogeneousWithConstructor;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\DTOWithConstructor;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\IntEnum;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\StringEnum;
+use EntelisTeam\Lbaf\Hydrator\Tests\_traits\CheckObjectTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayFlatHomogeneous\DTO\DTOArrayHomogeneousWithConstructor;
 
 #[
     CoversClass(Hydrator::class),

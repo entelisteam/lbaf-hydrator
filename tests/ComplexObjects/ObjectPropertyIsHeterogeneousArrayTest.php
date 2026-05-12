@@ -1,20 +1,20 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\ComplexObjects;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects;
 
-use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use EntelisTeam\DTOHydrator\Tests\_traits\CheckObjectTrait;
-use EntelisTeam\DTOHydrator\Tests\ComplexObjects\_testObjects\ImageContent;
-use EntelisTeam\DTOHydrator\Tests\ComplexObjects\_testObjects\ImageContentData;
-use EntelisTeam\DTOHydrator\Tests\ComplexObjects\_testObjects\StoryPage;
-use EntelisTeam\DTOHydrator\Tests\ComplexObjects\_testObjects\TextContent;
-use EntelisTeam\DTOHydrator\Tests\ComplexObjects\_testObjects\TextContentData;
-use EntelisTeam\DTOHydrator\Tests\ComplexObjects\_testObjects\TitleContent;
-use EntelisTeam\DTOHydrator\Tests\ComplexObjects\_testObjects\TitleContentData;
+use EntelisTeam\Lbaf\Hydrator\Tests\_traits\CheckObjectTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\ImageContent;
+use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\ImageContentData;
+use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\StoryPage;
+use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\TextContent;
+use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\TextContentData;
+use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\TitleContent;
+use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\TitleContentData;
 
 #[
     CoversClass(Hydrator::class),

@@ -1,8 +1,8 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\ObjectPropertyIsArrayWithSkipBroken\DTO;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ObjectPropertyIsArrayWithSkipBroken\DTO;
 
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\StringEnum;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\StringEnum;
 
 class TestItem
 {

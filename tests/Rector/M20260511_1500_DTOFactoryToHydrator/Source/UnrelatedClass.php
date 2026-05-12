@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source;
 
 class UnrelatedClass
 {

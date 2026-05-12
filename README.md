@@ -1,4 +1,4 @@
-# entelisteam/php-dto-hydrator
+# entelisteam/lbaf-hydrator
 
 Attribute-driven PHP DTO hydrator. Builds typed DTOs (and arrays of DTOs) from JSON-like data — scalars, enums, nested objects, union types, `DateTime`.
 
@@ -15,7 +15,7 @@ Requires PHP 8.2 or newer. Depends on [`entelisteam/php-reflection-helpers`](htt
 Добавьте `HydratorTrait` в свой DTO — и получите статические методы для гидратации из массивов и объектов:
 
 ```php
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 
 class UserDTO {
     use HydratorTrait;
@@ -81,7 +81,7 @@ $customer = CustomerDTO::hydrateObject([
 PHP-тип `array` не несёт информации об элементах — для типизированных коллекций используйте атрибут:
 
 ```php
-use EntelisTeam\DTOHydrator\Attribute\ArrayTypeOf;
+use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
 
 class LineItemDTO {
     use HydratorTrait;
@@ -118,7 +118,7 @@ $order = OrderDTO::hydrateObject([
 Когда имя свойства DTO отличается от ключа во входных данных (snake_case → camelCase, legacy-схемы, чужие API), используйте `#[Map(<имя поля во входных данных>)]`:
 
 ```php
-use EntelisTeam\DTOHydrator\Attribute\Map;
+use EntelisTeam\Lbaf\Hydrator\Attribute\Map;
 
 class UserDTO {
     use HydratorTrait;

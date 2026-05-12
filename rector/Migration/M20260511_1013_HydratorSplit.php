@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Rector\Migration;
+namespace EntelisTeam\Lbaf\Hydrator\Rector\Migration;
 
 use Rector\Configuration\RectorConfigBuilder;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;

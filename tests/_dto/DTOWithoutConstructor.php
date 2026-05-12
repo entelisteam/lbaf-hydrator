@@ -1,10 +1,10 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\_dto;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\_dto;
 
-use EntelisTeam\DTOHydrator\HydratorTrait;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\IntEnum;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\StringEnum;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\IntEnum;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\StringEnum;
 
 class DTOWithoutConstructor
 {

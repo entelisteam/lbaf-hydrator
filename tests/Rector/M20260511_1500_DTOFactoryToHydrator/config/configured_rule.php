@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use EntelisTeam\DTOHydrator\Rector\Migration\M20260511_1500_DTOFactoryToHydrator;
+use EntelisTeam\Lbaf\Hydrator\Rector\Migration\M20260612_1930_HydratorCallUnification;
 use Rector\Config\RectorConfig;
 
-return M20260511_1500_DTOFactoryToHydrator::apply(RectorConfig::configure());
+return M20260612_1930_HydratorCallUnification::apply(RectorConfig::configure());

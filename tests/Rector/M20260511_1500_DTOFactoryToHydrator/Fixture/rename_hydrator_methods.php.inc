@@ -1,8 +1,8 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Fixture;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Fixture;
 
-use EntelisTeam\DTOHydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
 
 class UsesHydratorMethods
 {
@@ -21,9 +21,9 @@ class UsesHydratorMethods
 -----
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Fixture;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Fixture;
 
-use EntelisTeam\DTOHydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
 
 class UsesHydratorMethods
 {

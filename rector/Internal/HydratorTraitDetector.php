@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Rector\Internal;
+namespace EntelisTeam\Lbaf\Hydrator\Rector\Internal;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\StaticCall;
@@ -19,11 +19,11 @@ use Rector\StaticTypeMapper\Resolver\ClassNameFromObjectTypeResolver;
 final class HydratorTraitDetector
 {
     private const TRAIT_FQNS = [
-        'EntelisTeam\\DTOHydrator\\HydratorTrait',
+        'EntelisTeam\\Lbaf\\Hydrator\\HydratorTrait',
     ];
 
     private const REGISTRY_FQNS = [
-        'EntelisTeam\\DTOHydrator\\HydratorRegistry',
+        'EntelisTeam\\Lbaf\\Hydrator\\HydratorRegistry',
     ];
 
     /**

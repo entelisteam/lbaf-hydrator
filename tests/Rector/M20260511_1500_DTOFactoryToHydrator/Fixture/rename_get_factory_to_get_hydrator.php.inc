@@ -1,10 +1,10 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Fixture;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Fixture;
 
-use EntelisTeam\DTOHydrator\HydratorRegistry;
-use EntelisTeam\DTOHydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source\SomeDTO;
-use EntelisTeam\DTOHydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source\UnrelatedClass;
+use EntelisTeam\Lbaf\Hydrator\HydratorRegistry;
+use EntelisTeam\Lbaf\Hydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source\SomeDTO;
+use EntelisTeam\Lbaf\Hydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source\UnrelatedClass;
 
 class UsesGetFactory
 {
@@ -31,11 +31,11 @@ class UsesGetFactory
 -----
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Fixture;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Fixture;
 
-use EntelisTeam\DTOHydrator\HydratorRegistry;
-use EntelisTeam\DTOHydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source\SomeDTO;
-use EntelisTeam\DTOHydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source\UnrelatedClass;
+use EntelisTeam\Lbaf\Hydrator\HydratorRegistry;
+use EntelisTeam\Lbaf\Hydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source\SomeDTO;
+use EntelisTeam\Lbaf\Hydrator\Tests\Rector\M20260511_1500_DTOFactoryToHydrator\Source\UnrelatedClass;
 
 class UsesGetFactory
 {

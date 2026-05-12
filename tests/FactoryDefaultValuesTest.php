@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests;
+namespace EntelisTeam\Lbaf\Hydrator\Tests;
 
-use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use EntelisTeam\DTOHydrator\Tests\_dto\DTODefaultValuesWithoutConstructor;
-use EntelisTeam\DTOHydrator\Tests\_traits\CheckObjectTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\DTODefaultValuesWithoutConstructor;
+use EntelisTeam\Lbaf\Hydrator\Tests\_traits\CheckObjectTrait;
 
 #[
     CoversClass(Hydrator::class),

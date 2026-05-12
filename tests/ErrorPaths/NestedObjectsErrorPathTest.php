@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\ErrorPaths;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\ErrorPaths;
 
-use EntelisTeam\DTOHydrator\Exception\RequiredArgumentException;
-use EntelisTeam\DTOHydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
@@ -20,7 +20,7 @@ class Bar
     /**
      * @var Zoo[]
      */
-    #[\EntelisTeam\DTOHydrator\Attribute\ArrayTypeOf(Zoo::class)]
+    #[\EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf(Zoo::class)]
     public array $items;
 }
 

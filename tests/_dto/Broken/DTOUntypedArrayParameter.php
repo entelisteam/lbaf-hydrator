@@ -1,8 +1,8 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\_dto\Broken;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\_dto\Broken;
 
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 
 class DTOUntypedArrayParameter
 {

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Definition;
+namespace EntelisTeam\Lbaf\Hydrator\Definition;
 
 use ReflectionParameter;
 use ReflectionProperty;

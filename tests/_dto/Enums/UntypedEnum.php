@@ -1,6 +1,6 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\_dto\Enums;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums;
 
 enum UntypedEnum
 {

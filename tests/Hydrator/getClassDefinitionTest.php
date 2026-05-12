@@ -1,19 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\Hydrator;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Hydrator;
 
-use EntelisTeam\DTOHydrator\Definition\ArgDefinition;
-use EntelisTeam\DTOHydrator\Definition\ClassDefinition;
-use EntelisTeam\DTOHydrator\Definition\DefinitionType;
-use EntelisTeam\DTOHydrator\Internal\HydratorEngine;
+use EntelisTeam\Lbaf\Hydrator\Definition\ArgDefinition;
+use EntelisTeam\Lbaf\Hydrator\Definition\ClassDefinition;
+use EntelisTeam\Lbaf\Hydrator\Definition\DefinitionType;
+use EntelisTeam\Lbaf\Hydrator\Internal\HydratorEngine;
 use EntelisTeam\Reflection\MethodParameters;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
-use EntelisTeam\DTOHydrator\Tests\Hydrator\_testObjects\ArrayClass;
-use EntelisTeam\DTOHydrator\Tests\Hydrator\_testObjects\SimpleClass;
+use EntelisTeam\Lbaf\Hydrator\Tests\Hydrator\_testObjects\ArrayClass;
+use EntelisTeam\Lbaf\Hydrator\Tests\Hydrator\_testObjects\SimpleClass;
 
 #[
     CoversClass(HydratorEngine::class),

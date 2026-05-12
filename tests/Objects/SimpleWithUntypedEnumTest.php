@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\Objects;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\Objects;
 
-use EntelisTeam\DTOHydrator\Hydrator;
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\Hydrator;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use EntelisTeam\DTOHydrator\Tests\_dto\DTOWithUntypedEn;
-use EntelisTeam\DTOHydrator\Tests\_dto\Enums\UntypedEnum;
-use EntelisTeam\DTOHydrator\Tests\_traits\CheckObjectTrait;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\DTOWithUntypedEn;
+use EntelisTeam\Lbaf\Hydrator\Tests\_dto\Enums\UntypedEnum;
+use EntelisTeam\Lbaf\Hydrator\Tests\_traits\CheckObjectTrait;
 
 #[
     CoversClass(Hydrator::class),

@@ -1,8 +1,8 @@
 <?php
 
-namespace EntelisTeam\DTOHydrator\Tests\_dto;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\_dto;
 
-use EntelisTeam\DTOHydrator\HydratorTrait;
+use EntelisTeam\Lbaf\Hydrator\HydratorTrait;
 
 class DTOWithConstructorAndLogic
 {

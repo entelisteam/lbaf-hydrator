@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace EntelisTeam\DTOHydrator\Tests\_traits;
+namespace EntelisTeam\Lbaf\Hydrator\Tests\_traits;
 
-use EntelisTeam\DTOHydrator\HydratorTraitInterface;
+use EntelisTeam\Lbaf\Hydrator\HydratorTraitInterface;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 

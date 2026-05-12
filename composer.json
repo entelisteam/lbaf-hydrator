@@ -21,13 +21,17 @@
   },
   "autoload": {
     "psr-4": {
-      "EntelisTeam\\DTOHydrator\\": "src/"
+      "EntelisTeam\\Lbaf\\Hydrator\\": "src/",
+      "EntelisTeam\\Lbaf\\Hydrator\\Rector\\": "rector/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "EntelisTeam\\DTOHydrator\\Tests\\": "tests/"
+      "EntelisTeam\\Lbaf\\Hydrator\\Tests\\": "tests/"
     }
+  },
+  "extra": {
+    "lbaf-rector-migrations": "EntelisTeam\\Lbaf\\Hydrator\\Rector\\Migrations"
   },
   "scripts": {
     "test": "vendor/bin/phpunit"
