@@ -27,7 +27,7 @@ use Rector\Renaming\ValueObject\RenameStaticMethod;
  * Покрывает переименования классов и статических методов. Use-импорты и FQN
  * обновляются автоматически встроенными RenameClassRector и RenameStaticMethodRector.
  */
-final class M20260511_1013_HydratorSplit
+final class Migration_20260511_1013_HydratorSplit
 {
     /**
      * Применяет правила миграции к существующему конфигуратору.

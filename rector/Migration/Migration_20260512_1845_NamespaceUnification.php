@@ -11,7 +11,7 @@ use Rector\Renaming\Rector\Name\RenameClassRector;
 /**
  * Миграция: EntelisTeam\DTOHydrator -> EntelisTeam\Lbaf\Hydrator
  */
-final class M20260512_1845_NamespaceUnification
+final class Migration_20260512_1845_NamespaceUnification
 {
     public static function apply(RectorConfigBuilder $config): RectorConfigBuilder
     {

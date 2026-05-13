@@ -3,7 +3,14 @@
   "description": "Attribute-driven PHP DTO hydrator: builds typed DTOs, enums, nested objects and typed arrays from JSON-like data.",
   "type": "library",
   "license": "MIT",
-  "keywords": ["hydrator", "dto", "json", "attribute", "factory", "deserialization"],
+  "keywords": [
+    "hydrator",
+    "dto",
+    "json",
+    "attribute",
+    "factory",
+    "deserialization"
+  ],
   "authors": [
     {
       "name": "ENTELISTEAM INC",
@@ -17,7 +24,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^12.0",
-    "rector/rector": "^2.3.0"
+    "rector/rector": "^2.3.0",
+    "entelisteam/lbaf-rector": "^1.0"
   },
   "autoload": {
     "psr-4": {
@@ -31,10 +39,12 @@
     }
   },
   "extra": {
-    "lbaf-rector-migrations": "EntelisTeam\\Lbaf\\Hydrator\\Rector\\Migrations"
+    "lbaf-rector-migrations": "EntelisTeam\\Lbaf\\Hydrator\\Rector\\MigrationList"
   },
   "scripts": {
-    "test": "vendor/bin/phpunit"
+    "test": "vendor/bin/phpunit",
+    "rector:check": "vendor/bin/rector process --dry-run",
+    "rector:fix": "vendor/bin/rector process"
   },
   "minimum-stability": "stable"
 }

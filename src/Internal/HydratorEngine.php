@@ -217,7 +217,7 @@ class HydratorEngine
             $result->constructorArgs = [];
             foreach ($constructorReflection->getParameters() as $parameterReflection) {
                 foreach ($parameterReflection->getAttributes(ArrayTypeOf::class, ReflectionAttribute::IS_INSTANCEOF) as $parameterAttributeReflection) {
-                    /** @var \EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf $attribute */
+                    /** @var ArrayTypeOf $attribute */
                     $attribute = $parameterAttributeReflection->newInstance();
                     $constructorArrayParametersType[$parameterReflection->getName()] = $attribute->targetClass;
                 }
