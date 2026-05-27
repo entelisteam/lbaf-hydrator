@@ -52,12 +52,4 @@ class Hydrator
         return $result;
     }
 
-    /**
-     * Приводит уже извлечённое значение к типу параметра/свойства.
-     * Используется на границе между DI-контейнером и гидратором.
-     */
-    public static function hydrateValue(ReflectionParameter|ReflectionProperty $reflection, mixed $valueFromInject, string $arrayTypeOf = 'mixed'): mixed
-    {
-        return HydratorEngine::hydrateValue($reflection, $valueFromInject, $arrayTypeOf);
-    }
 }
