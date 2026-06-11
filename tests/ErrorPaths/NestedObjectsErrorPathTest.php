@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace EntelisTeam\Lbaf\Hydrator\Tests\ErrorPaths;
 
+use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
 use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
 use EntelisTeam\Lbaf\Hydrator\Hydrator;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -20,7 +21,7 @@ class Bar
     /**
      * @var Zoo[]
      */
-    #[\EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf(Zoo::class)]
+    #[ArrayTypeOf(Zoo::class)]
     public array $items;
 }
 

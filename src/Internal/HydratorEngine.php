@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace EntelisTeam\Lbaf\Hydrator\Internal;
 
+use EntelisTeam\Lbaf\Reflection\EnumHelper;
+use EntelisTeam\Lbaf\Reflection\ClassNameHelper;
+use EntelisTeam\Lbaf\Reflection\TypeCaster;
 use DateTime;
 use DateTimeZone;
 use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
@@ -12,9 +15,6 @@ use EntelisTeam\Lbaf\Hydrator\Definition\ClassDefinition;
 use EntelisTeam\Lbaf\Hydrator\Definition\DefinitionType;
 use EntelisTeam\Lbaf\Hydrator\Exception\ArgumentTypeException;
 use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
-use EntelisTeam\Reflection\ClassNameHelper;
-use EntelisTeam\Reflection\EnumHelper;
-use EntelisTeam\Reflection\TypeCaster;
 use ReflectionAttribute;
 use ReflectionClass;
 use ReflectionException;

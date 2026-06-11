@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace EntelisTeam\Lbaf\Hydrator\Tests\Hydrator;
 
+use EntelisTeam\Lbaf\Reflection\MethodParameters;
 use EntelisTeam\Lbaf\Hydrator\Definition\ArgDefinition;
 use EntelisTeam\Lbaf\Hydrator\Definition\ClassDefinition;
 use EntelisTeam\Lbaf\Hydrator\Definition\DefinitionType;
 use EntelisTeam\Lbaf\Hydrator\Internal\HydratorEngine;
-use EntelisTeam\Reflection\MethodParameters;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;

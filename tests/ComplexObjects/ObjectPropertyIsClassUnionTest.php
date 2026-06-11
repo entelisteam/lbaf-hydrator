@@ -11,7 +11,6 @@ use PHPUnit\Framework\TestCase;
 use EntelisTeam\Lbaf\Hydrator\Tests\_traits\CheckObjectTrait;
 use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\DetailsPage;
 use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\DetailsPage2;
-use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\DetailsPage3;
 use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\ImageContent;
 use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\ImageContentData;
 use EntelisTeam\Lbaf\Hydrator\Tests\ComplexObjects\_testObjects\PolyContent;

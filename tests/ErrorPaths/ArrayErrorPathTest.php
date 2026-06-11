@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace EntelisTeam\Lbaf\Hydrator\Tests\ErrorPaths;
 
+use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
 use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
 use EntelisTeam\Lbaf\Hydrator\Hydrator;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -20,7 +21,7 @@ class ContainerWithArray
     /**
      * @var ItemInArray[]
      */
-    #[\EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf(ItemInArray::class)]
+    #[ArrayTypeOf(ItemInArray::class)]
     public array $items;
 }
 

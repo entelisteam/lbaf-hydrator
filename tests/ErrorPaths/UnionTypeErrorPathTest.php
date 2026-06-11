@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace EntelisTeam\Lbaf\Hydrator\Tests\ErrorPaths;
 
+use EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf;
 use EntelisTeam\Lbaf\Hydrator\Exception\RequiredArgumentException;
 use EntelisTeam\Lbaf\Hydrator\Hydrator;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -41,7 +42,7 @@ class NestedUnion
     /**
      * @var UnionItemA[]|UnionItemB[]
      */
-    #[\EntelisTeam\Lbaf\Hydrator\Attribute\ArrayTypeOf([UnionItemA::class, UnionItemB::class])]
+    #[ArrayTypeOf([UnionItemA::class, UnionItemB::class])]
     public array $items;
 }
 
