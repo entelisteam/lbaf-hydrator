@@ -20,7 +20,7 @@
   ],
   "require": {
     "php": "~8.2",
-    "entelisteam/lbaf-reflection": "1.1"
+    "entelisteam/lbaf-reflection": "1.2"
   },
   "require-dev": {
     "phpunit/phpunit": "^12.0",
